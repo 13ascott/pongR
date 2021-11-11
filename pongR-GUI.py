@@ -2,18 +2,25 @@
 
 import mariadb
 import sys
+# import pongR-dbconnect as pongconnect
+import kivy
 
-try:
-    conn = mariadb.connect(user="localuser",password="Welcome1",host="localhost",port=3306,database="compoundpingpong")
-except mariadb.Error as e:
-    print(f"Error connecting to MariaDB: {e}")
-    sys.exit(1)
+from kivy.app import App
+from kivy.uix.label import Label
+from kivy.uix.image import Image
+from kivy.uix.floatlayout import FloatLayout
 
-cur = conn.cursor()
+class PongRStartscreen(FloatLayout):
 
-cur.execute("SELECT * FROM players")
+    def __init__(self,**kwargs):
+        super(PongRStartscreen, self).__init__(**kwargs)
+        self.add_widget(Image(source = 'images/wood-bg-splash-screen.png'))
 
-for idnum, lastname, firstname, birthdate, profpic in cur:
-    print(f"{firstname} {lastname}")
 
-conn.close()
+class PongRApp(App):
+
+    def build(self):
+        return PongRStartscreen()
+
+if __name__=='__main__':
+    PongRApp().run()
