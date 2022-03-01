@@ -19,13 +19,13 @@ class MSLabel(Label):
     pass
 
 class MSButton(Button):
-    screen_text = 'pr_errorscreen'
+    pass #screen_text = 'pr_errorscreen'
 
 class BasicBkg(FloatLayout):
 
-  def gotomain(self, instance):
-      self.parent.parent.current = 'pr_mainscreen'
-      return
+    def gotomain(self):
+        self.parent.parent.current = 'pr_mainscreen'
+        return
     
 class RecGameScreen(Screen):
     pass
@@ -64,10 +64,18 @@ class MainScreen(Screen):
         stbutt = MSButton(text='START TOURNAMENT', on_release=self.changeScreen)
         stbutt.screen_text = 'pr_tournamentscreen'
         main_menu.add_widget(stbutt)
-        main_menu.add_widget(MSButton(text='VIEW RANKINGS', on_release=self.changeScreen))
-        main_menu.add_widget(MSButton(text='VIEW GAME RESULTS', on_release=self.changeScreen))
-        main_menu.add_widget(MSButton(text='ADD PLAYER', on_release=self.changeScreen))
-        main_menu.add_widget(MSButton(text='SETTINGS', on_release=self.changeScreen))
+        vrbutt = MSButton(text='VIEW RANKINGS', on_release=self.changeScreen)
+        vrbutt.screen_text = 'pr_rankingsscreen'
+        main_menu.add_widget(vrbutt)
+        vgbutt = MSButton(text='VIEW GAME RESULTS', on_release=self.changeScreen)
+        vgbutt.screen_text = 'pr_viewgamescreen'
+        main_menu.add_widget(vgbutt)
+        apbutt = MSButton(text='ADD PLAYER', on_release=self.changeScreen)
+        apbutt.screen_text = 'pr_addplayerscreen'
+        main_menu.add_widget(apbutt)
+        sebutt = MSButton(text='SETTINGS', on_release=self.changeScreen)
+        sebutt.screen_text = 'pr_settingsscreen'
+        main_menu.add_widget(sebutt)
         main_layout.add_widget(main_menu)
         
         self.add_widget(main_layout)

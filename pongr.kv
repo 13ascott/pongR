@@ -1,9 +1,10 @@
 <MSLabel>:
   font_size: '80sp'
   bold: True
-<MSButton>:
+<MSButton>: 
   font_size: '42sp'
-  background_normal: ''
+  bold: True
+  background_normal: ''  
   background_color: .12, .685, .9, 1
   canvas.after:
     Color:
@@ -14,31 +15,56 @@
 <BasicBkg>:
   Image:
     source: 'images/wood-bg-w-logo.png'
-  Button:
+  MSButton:
+    background_color: .42, .522, .58, 1
+    size_hint: 0.08,0.69
+    pos_hint: {'center_x':0.06, 'center_y':0.3825}
+    on_release: root.gotomain() 
+  Label:
     text: 'Return to Main'
     font_size: '42sp'
-    size_hint: 0.15,0.6
-    pos_hint: {"x_center":0.11, "y_center":0.33}
-    on_release: self.gotomain
+    bold: True
+    pos_hint: {'center_x':0.06, 'center_y':0.3825}
     canvas.before:
       PushMatrix
       Rotate:
         angle: 90
         origin: self.center
+    canvas.after:
       PopMatrix
 <RecGameScreen>:
   BasicBkg:
     MSLabel:
       text: 'Record Ping Pong Game'
       size_hint: 0.4,0.1
-      pos_hint:{"center_x":0.6, "y":0.85}
+      pos_hint:{'center_x':0.6, 'y':0.85}
 <TournamentScreen>:
   BasicBkg:
+    MSLabel:
+      text: 'Begin Tournament'
+      size_hint: 0.4,0.1
+      pos_hint:{'center_x':0.6, 'y':0.85}
 <RankingsScreen>:
   BasicBkg:
+    MSLabel:
+      text: 'View Rankings'
+      size_hint: 0.4,0.1
+      pos_hint:{'center_x':0.6, 'y':0.85}
 <SearchGameScreen>:
   BasicBkg:
+    MSLabel:
+      text: 'Search For Game'
+      size_hint: 0.4,0.1
+      pos_hint:{'center_x':0.6, 'y':0.85}
 <AddPlayerScreen>:
   BasicBkg:
+    MSLabel:
+      text: 'Add Player Profile'
+      size_hint: 0.4,0.1
+      pos_hint:{'center_x':0.6, 'y':0.85}
 <SettingsScreen>:
   BasicBkg:
+    MSLabel:
+      text: 'Settings'
+      size_hint: 0.4,0.1
+      pos_hint:{'center_x':0.6, 'y':0.85}
