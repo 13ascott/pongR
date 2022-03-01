@@ -1,0 +1,44 @@
+<MSLabel>:
+  font_size: '80sp'
+  bold: True
+<MSButton>:
+  font_size: '42sp'
+  background_normal: ''
+  background_color: .12, .685, .9, 1
+  canvas.after:
+    Color:
+      rgba:1,1,1,1
+    Line:
+      width: 4
+      rectangle: self.x, self.y, self.width, self.height
+<BasicBkg>:
+  Image:
+    source: 'images/wood-bg-w-logo.png'
+  Button:
+    text: 'Return to Main'
+    font_size: '42sp'
+    size_hint: 0.15,0.6
+    pos_hint: {"x_center":0.11, "y_center":0.33}
+    on_release: self.gotomain
+    canvas.before:
+      PushMatrix
+      Rotate:
+        angle: 90
+        origin: self.center
+      PopMatrix
+<RecGameScreen>:
+  BasicBkg:
+    MSLabel:
+      text: 'Record Ping Pong Game'
+      size_hint: 0.4,0.1
+      pos_hint:{"center_x":0.6, "y":0.85}
+<TournamentScreen>:
+  BasicBkg:
+<RankingsScreen>:
+  BasicBkg:
+<SearchGameScreen>:
+  BasicBkg:
+<AddPlayerScreen>:
+  BasicBkg:
+<SettingsScreen>:
+  BasicBkg:
